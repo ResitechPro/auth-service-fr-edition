@@ -5,6 +5,7 @@ import environment from "../config/environment.js";
 import errorHandler from "./interceptors/errorHandler.js";
 import DependencyInjection from "../../ioc-container/DependencyInjection.js";
 import logger from "../packages/pino/logger.js";
+import MongooseConnection from "../database/MongooseConnection.js";
 
 class Server {
   constructor() {
@@ -45,7 +46,7 @@ class Server {
   };
 
   connectToDatabase = () => {
-    // TODO: Implement database connection
+    MongooseConnection.getInstance();
   };
 
   start = async () => {

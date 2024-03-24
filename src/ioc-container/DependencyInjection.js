@@ -16,7 +16,8 @@ import JsonWebToken from "../infrastructure/packages/jwt/JsonWebToken.js";
 // ====================================================================================
 
 // models =============================================================================
-// TODO: Import the models
+import User from "../infrastructure/database/models/User.js";
+import UserToken from "../infrastructure/database/models/UserToken.js";
 // ====================================================================================
 
 // repositories =======================================================================
@@ -58,8 +59,8 @@ class DependencyInjection {
     // =================================================================================
 
     // repositories ====================================================================
-    const userRepository = new UserRepository(/* User */); // TODO: Add the User model
-    const userTokenRepository = new UserTokenRepository(/* UserToken */); // TODO: Add the UserToken model
+    const userRepository = new UserRepository(User);
+    const userTokenRepository = new UserTokenRepository(UserToken);
     // =================================================================================
 
     // services ========================================================================
