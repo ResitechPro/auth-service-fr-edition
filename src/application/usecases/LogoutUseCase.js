@@ -1,4 +1,4 @@
-import UnauthorizedError from "../../../infrastructure/exceptions/UnauthorizedError.js";
+import UnauthorizedError from "../../infrastructure/exceptions/UnauthorizedError.js";
 
 class LogoutUseCase {
   constructor({ authServices }) {

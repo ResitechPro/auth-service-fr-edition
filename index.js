@@ -1,11 +1,5 @@
-const express = require("express");
-const app = express();
-const port = 3001;
+import Server from "./src/infrastructure/webserver/Server.js";
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const server = new Server();
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+server.start();

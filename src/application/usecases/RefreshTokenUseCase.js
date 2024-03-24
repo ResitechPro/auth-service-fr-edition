@@ -1,4 +1,4 @@
-import UnauthorizedError from "../../../infrastructure/exceptions/UnauthorizedError.js";
+import UnauthorizedError from "../../infrastructure/exceptions/UnauthorizedError.js";
 
 class RefreshTokenUseCase {
   constructor({ authServices }) {
