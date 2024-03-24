@@ -1,0 +1,18 @@
+services:
+  auth:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: development
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./src:/app/src
+      - ./.env:/app/.env
+    environment:
+      NODE_ENV: development
+
+networks:
+  app-network:
+    driver: bridge
