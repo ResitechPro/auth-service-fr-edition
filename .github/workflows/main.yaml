@@ -29,7 +29,7 @@ jobs:
 
       - name: Build and Push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth-fr-edition:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth-fr-edition:latest -f docker/Dockerfile .
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
           docker push ${{ secrets.DOCKER_USERNAME }}/auth-fr-edition:latest
 
