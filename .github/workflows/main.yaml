@@ -27,6 +27,12 @@ jobs:
       - name: Run Tests
         run: npm test
 
+      - name: Build and Push Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/auth-fr-edition:latest .
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/auth-fr-edition:latest
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -34,4 +40,4 @@ jobs:
     steps:
       - name: Deploy to Production
         run: |
-          # Here will be the deployment script to aws
+          # The delpoment script is not implemented yet
