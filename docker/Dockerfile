@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY .env index.js ./
+COPY index.js ./
 COPY keys ./keys
 COPY src ./src
 
