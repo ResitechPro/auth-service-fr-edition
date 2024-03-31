@@ -22,11 +22,11 @@ class RefreshTokenUseCase {
 
     return {
       status: 200,
-      jwt: {
-        accessToken,
-      },
       data: {
         message: "Access token has been refreshed successfully!",
+        jwt: {
+          accessToken,
+        },
       },
     };
   };

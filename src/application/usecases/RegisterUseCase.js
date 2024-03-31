@@ -17,12 +17,12 @@ class RegisterUseCase {
 
     return {
       status: 200,
-      jwt: {
-        accessToken,
-        refreshToken,
-      },
       data: {
         message: "Register successfully",
+        jwt: {
+          accessToken,
+          refreshToken,
+        },
         user,
       },
     };

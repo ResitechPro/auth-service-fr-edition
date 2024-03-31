@@ -22,11 +22,6 @@ class AuthController {
       confirmPassword,
     });
 
-    if (result?.jwt) {
-      res.cookie("access_token", result.jwt.accessToken, { httpOnly: true });
-      res.cookie("refresh_token", result.jwt.refreshToken, { httpOnly: true });
-    }
-
     res.status(result.status).json(result.data);
   };
 
@@ -38,33 +33,21 @@ class AuthController {
       password,
     });
 
-    if (result?.jwt) {
-      res.cookie("access_token", result.jwt.accessToken, { httpOnly: true });
-      res.cookie("refresh_token", result.jwt.refreshToken, { httpOnly: true });
-    }
-
     res.status(result.status).json(result.data);
   };
 
   logout = async (req, res) => {
-    const { refresh_token } = req.cookies;
+    const { refreshToken } = req.body;
 
-    const result = await this.logoutUseCase.execute(refresh_token);
-
-    res.clearCookie("access_token");
-    res.clearCookie("refresh_token");
+    const result = await this.logoutUseCase.execute(refreshToken);
 
     res.status(result.status).json(result.data);
   };
 
   refreshToken = async (req, res) => {
-    const { refresh_token } = req.cookies;
+    const { refreshToken } = req.body;
 
-    const result = await this.refreshTokenUseCase.execute(refresh_token);
-
-    if (result.jwt) {
-      res.cookie("access_token", result.jwt.accessToken, { httpOnly: true });
-    }
+    const result = await this.refreshTokenUseCase.execute(refreshToken);
 
     res.status(result.status).json(result.data);
   };

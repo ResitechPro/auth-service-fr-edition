@@ -15,12 +15,12 @@ class LoginUseCase {
 
     return {
       status: 200,
-      jwt: {
-        accessToken,
-        refreshToken,
-      },
       data: {
         message: "Login successfully",
+        jwt: {
+          accessToken,
+          refreshToken,
+        },
         user,
       },
     };
